@@ -1,0 +1,29 @@
+ENLACE DEL REPOSITORIO - BarberTurno
+======================================
+Evidencia: GA7-220501096-AA2-EV01
+Aprendiz: Frank Sepulveda
+Programa: Análisis y Desarrollo de Software - SENA
+
+REPOSITORIO GITHUB:
+https://github.com/FrankSepulveda22/BARBERTURNO
+
+INSTRUCCIONES PARA SUBIR EL PROYECTO (repositorio ya creado):
+--------------------------------------------------------------
+Como ya tienes el repositorio creado, solo ejecuta estos comandos
+dentro de la carpeta del proyecto:
+
+   git init
+   git add .
+   git commit -m "feat: módulo de clientes con CRUD y conexión JDBC"
+   git branch -M main
+   git remote add origin https://github.com/FrankSepulveda22/BARBERTURNO.git
+   git push -u origin main
+
+COMMITS SUGERIDOS:
+------------------
+- "init: estructura inicial del proyecto BarberTurno"
+- "feat: clase ConexionDB con patrón Singleton JDBC"
+- "feat: modelo Cliente con getters y setters"
+- "feat: ClienteDAO con operaciones CRUD"
+- "feat: VistaCliente con menú interactivo de consola"
+- "db: script SQL de creación de tablas y datos de prueba"
