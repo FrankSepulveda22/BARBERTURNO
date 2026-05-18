@@ -106,7 +106,7 @@ private static final String PASSWORD = "";            // Cambiar según tu MySQL
 
 ## Repositorio GitHub
 
-[Enlace al repositorio - pendiente de configurar]
+https://github.com/FrankSepulveda22/BARBERTURNO/
 
 ---
 
