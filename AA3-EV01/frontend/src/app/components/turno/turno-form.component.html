@@ -1,0 +1,148 @@
+<!-- ============================================================
+     BarberTurno - Formulario de Turno (Crear / Editar)
+     Componente: TurnoFormComponent
+     Autor: BarberTurno Team | Versión: 1.0
+     ============================================================ -->
+
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+
+      <!-- ── Cabecera del formulario ─────────────────────── -->
+      <div class="d-flex align-items-center mb-4">
+        <button class="btn btn-outline-secondary me-3" (click)="cancelar()">
+          <i class="bi bi-arrow-left"></i>
+        </button>
+        <h3 class="mb-0">
+          <i class="bi bi-calendar-plus me-2 text-primary"></i>
+          {{ modoEdicion ? 'Editar Turno' : 'Nuevo Turno' }}
+        </h3>
+      </div>
+
+      <!-- ── Alerta de error ─────────────────────────────── -->
+      <div *ngIf="mensajeError" class="alert alert-danger">
+        <i class="bi bi-exclamation-triangle me-2"></i>{{ mensajeError }}
+      </div>
+
+      <!-- ── Formulario reactivo ─────────────────────────── -->
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <form [formGroup]="formulario" (ngSubmit)="guardar()" novalidate>
+
+            <!-- Nombre del cliente -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">
+                Nombre del cliente <span class="text-danger">*</span>
+              </label>
+              <input type="text"
+                     class="form-control"
+                     [class.is-invalid]="campoInvalido('nombreCliente')"
+                     formControlName="nombreCliente"
+                     placeholder="Ej: Juan Carlos Pérez">
+              <div class="invalid-feedback">
+                El nombre es obligatorio (mínimo 3 caracteres).
+              </div>
+            </div>
+
+            <!-- Teléfono del cliente -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">Teléfono</label>
+              <input type="tel"
+                     class="form-control"
+                     [class.is-invalid]="campoInvalido('telefonoCliente')"
+                     formControlName="telefonoCliente"
+                     placeholder="Ej: 3001234567">
+              <div class="invalid-feedback">
+                Ingrese un número de teléfono válido (7 a 10 dígitos).
+              </div>
+            </div>
+
+            <!-- Barbero -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">
+                Barbero <span class="text-danger">*</span>
+              </label>
+              <select class="form-select"
+                      [class.is-invalid]="campoInvalido('barbero')"
+                      formControlName="barbero">
+                <option value="">-- Seleccione un barbero --</option>
+                <option *ngFor="let b of barberos" [value]="b">{{ b }}</option>
+              </select>
+              <div class="invalid-feedback">Seleccione un barbero.</div>
+            </div>
+
+            <!-- Fecha y Hora en la misma fila -->
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">
+                  Fecha <span class="text-danger">*</span>
+                </label>
+                <input type="date"
+                       class="form-control"
+                       [class.is-invalid]="campoInvalido('fecha')"
+                       formControlName="fecha"
+                       [min]="fechaMinima">
+                <div class="invalid-feedback">La fecha es obligatoria.</div>
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label class="form-label fw-semibold">
+                  Hora <span class="text-danger">*</span>
+                </label>
+                <input type="time"
+                       class="form-control"
+                       [class.is-invalid]="campoInvalido('hora')"
+                       formControlName="hora"
+                       min="08:00"
+                       max="19:00">
+                <div class="invalid-feedback">La hora es obligatoria.</div>
+              </div>
+            </div>
+
+            <!-- Servicio -->
+            <div class="mb-3">
+              <label class="form-label fw-semibold">
+                Servicio <span class="text-danger">*</span>
+              </label>
+              <select class="form-select"
+                      [class.is-invalid]="campoInvalido('servicio')"
+                      formControlName="servicio">
+                <option value="">-- Seleccione un servicio --</option>
+                <option *ngFor="let s of servicios" [value]="s">{{ s }}</option>
+              </select>
+              <div class="invalid-feedback">Seleccione un servicio.</div>
+            </div>
+
+            <!-- Observaciones -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold">Observaciones</label>
+              <textarea class="form-control"
+                        formControlName="observaciones"
+                        rows="3"
+                        placeholder="Indicaciones especiales, alergias, preferencias..."></textarea>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="d-flex gap-2 justify-content-end">
+              <button type="button"
+                      class="btn btn-outline-secondary"
+                      (click)="cancelar()"
+                      [disabled]="enviando">
+                Cancelar
+              </button>
+              <button type="submit"
+                      class="btn btn-primary"
+                      [disabled]="enviando">
+                <span *ngIf="enviando" class="spinner-border spinner-border-sm me-2"></span>
+                <i *ngIf="!enviando" class="bi bi-check-lg me-1"></i>
+                {{ modoEdicion ? 'Actualizar' : 'Guardar Turno' }}
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
