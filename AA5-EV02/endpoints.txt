@@ -1,0 +1,57 @@
+========================================
+  BarberTurno API — ENDPOINTS
+  GA7-220501096-AA5-EV02
+  Aprendiz: Frank Sepúlveda
+========================================
+
+BASE URL: http://localhost:8080
+
+--------------------------------------------
+ENDPOINTS PÚBLICOS (no requieren token)
+--------------------------------------------
+
+1. GET    http://localhost:8080/api/health
+   Descripción: Verifica que el servidor esté activo
+   Autenticación: No requerida
+
+2. POST   http://localhost:8080/api/auth/registro
+   Descripción: Registrar nuevo usuario
+   Autenticación: No requerida
+   Body (JSON):
+   {
+     "nombre": "string",
+     "email": "string",
+     "password": "string (mín. 6 caracteres)"
+   }
+
+3. POST   http://localhost:8080/api/auth/login
+   Descripción: Iniciar sesión y obtener token JWT
+   Autenticación: No requerida
+   Body (JSON):
+   {
+     "email": "string",
+     "password": "string"
+   }
+
+--------------------------------------------
+ENDPOINTS PROTEGIDOS (requieren token JWT)
+--------------------------------------------
+
+4. GET    http://localhost:8080/api/auth/perfil
+   Descripción: Ver perfil del usuario autenticado
+   Autenticación: Bearer Token (JWT)
+   Header: Authorization: Bearer <token>
+
+--------------------------------------------
+CÓDIGOS DE RESPUESTA UTILIZADOS
+--------------------------------------------
+200 OK          → Solicitud exitosa
+201 Created     → Recurso creado correctamente
+400 Bad Request → Datos faltantes o inválidos
+401 Unauthorized→ Credenciales incorrectas o sin token
+409 Conflict    → Email ya registrado
+500 Internal    → Error del servidor
+
+========================================
+  Repositorio: https://github.com/FrankSepulveda22/BARBERTURNO
+========================================
