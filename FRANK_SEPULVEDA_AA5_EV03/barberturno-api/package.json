@@ -1,0 +1,21 @@
+{
+  "name": "barberturno-api",
+  "version": "1.0.0",
+  "description": "API REST completa para BarberTurno - GA7-220501096-AA5-EV03",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "node test/api.test.js"
+  },
+  "author": "Frank Sepúlveda",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
