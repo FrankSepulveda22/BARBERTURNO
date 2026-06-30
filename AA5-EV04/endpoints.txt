@@ -1,0 +1,68 @@
+========================================
+  BarberTurno API v2 — ENDPOINTS
+  GA7-220501096-AA5-EV04
+  Aprendiz: Frank Sepúlveda
+========================================
+
+BASE URL: http://localhost:8080
+
+--------------------------------------------
+MÓDULO: AUTENTICACIÓN
+--------------------------------------------
+GET    /api/health                  → Estado del servidor (público)
+POST   /api/auth/registro           → Registrar usuario (público)
+POST   /api/auth/login              → Iniciar sesión (público)
+GET    /api/auth/perfil             → Ver perfil (requiere JWT)
+
+--------------------------------------------
+MÓDULO: BARBEROS
+--------------------------------------------
+GET    /api/barberos                → Listar barberos (público)
+GET    /api/barberos/{id}           → Ver barbero por ID (público)
+GET    /api/barberos/disponibles    → Barberos disponibles (público)
+POST   /api/barberos                → Crear barbero (público)
+PUT    /api/barberos/{id}/disponibilidad → Cambiar disponibilidad (público)
+
+--------------------------------------------
+MÓDULO: SERVICIOS
+--------------------------------------------
+GET    /api/servicios               → Listar servicios (público)
+GET    /api/servicios/{id}          → Ver servicio por ID (público)
+POST   /api/servicios               → Crear servicio (público)
+PUT    /api/servicios/{id}          → Actualizar servicio (público)
+DELETE /api/servicios/{id}          → Desactivar servicio (público)
+
+--------------------------------------------
+MÓDULO: CITAS
+--------------------------------------------
+POST   /api/citas                   → Crear cita (requiere JWT)
+GET    /api/citas/mis-citas         → Ver mis citas (requiere JWT)
+GET    /api/citas/{id}              → Ver cita por ID (requiere JWT)
+PUT    /api/citas/{id}/cancelar     → Cancelar cita (requiere JWT)
+GET    /api/citas                   → Listar todas las citas (requiere JWT)
+
+--------------------------------------------
+AUTENTICACIÓN JWT
+--------------------------------------------
+Header requerido en rutas protegidas:
+Authorization: Bearer <token>
+
+Usuarios precargados:
+- admin@barberturno.com / admin123 (ADMIN)
+- frank@email.com / 123456 (CLIENTE)
+
+--------------------------------------------
+CÓDIGOS DE RESPUESTA UTILIZADOS
+--------------------------------------------
+200 OK          → Solicitud exitosa
+201 Created     → Recurso creado correctamente
+400 Bad Request → Datos faltantes o inválidos
+401 Unauthorized→ Credenciales incorrectas
+403 Forbidden   → Acceso denegado (sin token válido)
+404 Not Found   → Recurso no encontrado
+409 Conflict    → Email duplicado / conflicto de estado
+500 Internal    → Error del servidor
+
+========================================
+  Repositorio: https://github.com/FrankSepulveda22/BARBERTURNO
+========================================

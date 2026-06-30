@@ -1,0 +1,32 @@
+========================================
+  BarberTurno API v2 — Video de Testing
+  GA7-220501096-AA5-EV04
+  Aprendiz: Frank Sepúlveda
+========================================
+
+Enlace del video en YouTube:
+https://youtu.be/nFPIV_kMCg0
+
+Descripción:
+Video demostrando el testing completo de la API REST del proyecto
+BarberTurno (Spring Boot) utilizando la herramienta Postman.
+
+Pruebas mostradas en el video:
+
+EXITOSAS:
+1. GET  /api/health                  → 200 OK
+2. POST /api/auth/registro           → 201 Created
+3. POST /api/auth/login              → 200 OK
+4. GET  /api/auth/perfil (JWT)       → 200 OK
+5. GET  /api/barberos                → 200 OK
+6. GET  /api/servicios               → 200 OK
+7. POST /api/citas (JWT)             → 201 Created
+8. GET  /api/citas/mis-citas (JWT)   → 200 OK
+9. PUT  /api/citas/{id}/cancelar     → 200 OK
+
+ERRORES ESPERADOS:
+10. POST /api/auth/login (pass incorrecta) → 401 Unauthorized
+11. POST /api/auth/registro (email duplicado) → 409 Conflict
+12. GET  /api/citas/mis-citas (sin token) → 403 Forbidden
+
+========================================

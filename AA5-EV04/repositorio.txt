@@ -1,0 +1,21 @@
+========================================
+  BarberTurno — Enlace del Repositorio
+  GA7-220501096-AA5-EV04
+  Aprendiz: Frank Sepúlveda
+========================================
+
+Repositorio GitHub:
+https://github.com/FrankSepulveda22/BARBERTURNO
+
+Descripción:
+Repositorio del proyecto BarberTurno — Sistema de gestión de
+turnos para barbería, desarrollado como proyecto formativo del
+programa Análisis y Desarrollo de Software - SENA.
+
+Evidencias relacionadas en el repositorio:
+- AA5-EV01: API de autenticación (Node.js + Express)
+- AA5-EV02: Testing API autenticación con Postman
+- AA5-EV03: API completa del proyecto (Spring Boot + Java 17)
+- AA5-EV04: Testing API completa del proyecto con Postman
+
+========================================
